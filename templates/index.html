@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainfall Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>South Interior Rainfall Prediction</h1>
+        <form action="/" method="POST">
+            <label for="Month">Month (1-12):</label><br>
+            <input type="number" id="Month" name="Month" min="1" max="12" required><br><br>
+
+            <label for="Year">Year:</label><br>
+            <select id="Year" name="Year" required>
+                {% for year in year_range %}
+                    <option value="{{ year }}">{{ year }}</option>
+                {% endfor %}
+            </select><br><br>
+            <input  class="button" type="submit" value="Predict">
+        </form>
+    </div>
+</body>
+</html>
